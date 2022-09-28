@@ -6,50 +6,38 @@ msg_4 = "Do you want to store the result? (y / n):"
 msg_5 = "Do you want to continue calculations? (y / n):"
 
 
-#def play(x):
-    #global n
-    #if n > 0:
-        # honest_calc(x)
-
-
 def count(x, y, oper, mem):
-    while True:
-        if oper == "/":
-            try:
-                result = float(x) / float(y)
-            except ZeroDivisionError:
-                print(msg_3)
-                honest_calc(mem)  #DONE возвращается к исходным данным, не сохраняя значение М
-            else:
-                store(result)
-                break
-        elif oper == "+":
-            result = float(x) + float(y)
-            store(result)
-            break
-        elif oper == "-":
-            result = float(x) - float(y)
-            store(result)
-            break
-        elif oper == "*":
-            result = float(x) * float(y)
-            store(result)
-            break
+    if oper == "/":
+        try:
+            result = float(x) / float(y)
+        except ZeroDivisionError:
+            print(msg_3)
+            honest_calc(mem)
         else:
-            print(msg_2)
-            honest_calc(0)
-            continue
+            store(result)
+    elif oper == "+":
+        result = float(x) + float(y)
+        store(result)
+    elif oper == "-":
+        result = float(x) - float(y)
+        store(result)
+    elif oper == "*":
+        result = float(x) * float(y)
+        store(result)
+    else:
+        print(msg_2)
+        honest_calc(0)
 
 
 def honest_calc(mem):
-    while True:
+    while n != 0:
         memory = mem
         print(msg_0)
         calc = input().split()
         if calc[0] == "M":
-            count(memory, calc[2], calc[1], mem)     #DONE добавить что-то здесь? чтобы М сохранялась
+            count(memory, calc[2], calc[1], mem)
         elif calc[2] == "M":
-            count(calc[0], memory, calc[1], mem)     #DONE добавить что-то здесь? чтобы М сохранялась
+            count(calc[0], memory, calc[1], mem)
         else:
             try:
                 calc[0] = float(calc[0])
@@ -58,19 +46,18 @@ def honest_calc(mem):
                 print(msg_1)
                 continue
             else:
-                count(calc[0], calc[2], calc[1], mem)        # добавить что-то здесь? чтобы М сохранялась
+                count(calc[0], calc[2], calc[1], mem)
 
 
 def cont(mem):
     print(msg_5)
     global n
     answer = input()
-    while True:
-        if answer == "y":
-            honest_calc(mem)
-        #if answer == "n":
-            #n = 0
-            #honest_calc(0)
+    if answer == "y":
+        honest_calc(mem)
+    if answer == "n":
+        n = 0
+        honest_calc(0)
             
 
 def store(result_):
