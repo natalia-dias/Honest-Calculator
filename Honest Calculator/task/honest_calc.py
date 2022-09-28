@@ -6,20 +6,20 @@ msg_4 = "Do you want to store the result? (y / n):"
 msg_5 = "Do you want to continue calculations? (y / n):"
 
 
-def play(x):
-    global n
-    if n > 0:
-        honest_calc(x)
+#def play(x):
+    #global n
+    #if n > 0:
+        # honest_calc(x)
 
 
-def count(x, y, oper):
+def count(x, y, oper, mem):
     while True:
         if oper == "/":
             try:
                 result = float(x) / float(y)
             except ZeroDivisionError:
                 print(msg_3)
-                honest_calc(0)
+                honest_calc(mem)  #DONE возвращается к исходным данным, не сохраняя значение М
             else:
                 store(result)
                 break
@@ -47,9 +47,9 @@ def honest_calc(mem):
         print(msg_0)
         calc = input().split()
         if calc[0] == "M":
-            count(memory, calc[2], calc[1])
+            count(memory, calc[2], calc[1], mem)     #DONE добавить что-то здесь? чтобы М сохранялась
         elif calc[2] == "M":
-            count(calc[0], memory, calc[1])
+            count(calc[0], memory, calc[1], mem)     #DONE добавить что-то здесь? чтобы М сохранялась
         else:
             try:
                 calc[0] = float(calc[0])
@@ -58,7 +58,7 @@ def honest_calc(mem):
                 print(msg_1)
                 continue
             else:
-                count(calc[0], calc[2], calc[1])
+                count(calc[0], calc[2], calc[1], mem)        # добавить что-то здесь? чтобы М сохранялась
 
 
 def cont(mem):

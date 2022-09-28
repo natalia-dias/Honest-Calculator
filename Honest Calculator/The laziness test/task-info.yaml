@@ -59,5 +59,27 @@ files:
         HonestCalc().run_tests()
   learner_created: false
 feedback_link: https://hyperskill.org/projects/208/stages/1042/implement#comment
-status: Unchecked
-record: -1
+status: Failed
+feedback:
+  message: |-
+    Wrong answer in test #3
+
+    Expected:
+    You are ... lazy ... very lazy
+    5.0
+    Do you want to store the result? (y / n):
+    Found:
+    5.0
+    Do you want to store the result? (y / n):
+
+    Please find below the output of your program during this failed test.
+    Note that the '>' character indicates the beginning of the input line.
+
+    ---
+
+    Enter an equation
+    > 1 * 5
+    5.0
+    Do you want to store the result? (y / n):
+  time: Wed, 28 Sep 2022 15:43:39 UTC
+record: 4

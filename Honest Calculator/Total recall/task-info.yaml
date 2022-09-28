@@ -57,24 +57,8 @@ files:
         HonestCalc().run_tests()
   learner_created: false
 feedback_link: https://hyperskill.org/projects/208/stages/1041/implement#comment
-status: Failed
+status: Solved
 feedback:
-  message: |-
-    Error in test #1
-
-    In this test, the program is running for a long time, more than 15 seconds. Most likely, the program has gone into an infinite loop.
-
-    Please find below the output of your program during this failed test.
-    Note that the '>' character indicates the beginning of the input line.
-
-    ---
-
-    Enter an equation
-    > 4 * 5
-    20.0
-    Do you want to store the result? (y / n):
-    > y
-    Do you want to continue calculations? (y / n):
-    > n
-  time: Tue, 27 Sep 2022 21:43:30 UTC
-record: -1
+  message: Congratulations!
+  time: Wed, 28 Sep 2022 15:15:54 UTC
+record: 3
